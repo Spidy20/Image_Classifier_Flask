@@ -21,10 +21,14 @@ app = Flask(__name__)
 
 
 MODEL_PATH = 'model_resnet.h5'
-
 # Load your trained model
 model = load_model(MODEL_PATH)
 model._make_predict_function()
+
+##For creating model
+#from keras.applications.resnet50 import ResNet50
+#model = ResNet50(weights='imagenet')
+#model.save('model_resnet.h5')
 
 def model_predict(img_path, model):
     img = image.load_img(img_path, target_size=(224, 224))
